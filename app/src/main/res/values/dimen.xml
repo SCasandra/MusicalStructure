@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="content_horizontal_margin">16dp</dimen>
+    <dimen name="screen_edge_margins">16dp</dimen>
+    <dimen name="big">56dp</dimen>
+    <dimen name="padding_between_views">8dp</dimen>
+</resources>
