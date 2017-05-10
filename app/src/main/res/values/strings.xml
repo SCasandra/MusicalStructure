@@ -2,4 +2,9 @@
     <string name="app_name">Musical Structure</string>
     <string name="category_songs">Songs</string>
     <string name="category_artists">Artists</string>
+    <string name="main_activity">This activity contains two list and shows all
+        songs and all artists. On artist list click you can see details about him. On song list click a new activity will appear, PlayActivity  </string>
+    <string name="play_activity">This activity show and play the current song. Media Player class will be used to play music. </string>
+    <string name="artist_details_activity">This activity open a web page with information about artist.</string>
+    <string name="progressBar_message">Loading data..</string>
 </resources>

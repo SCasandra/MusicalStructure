@@ -1,6 +1,5 @@
 package com.casii.droid.musicalstructure;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -32,11 +31,9 @@ public class ArtistsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.list_items, container, false);
-
         // Create an {@link ArtistAdapter}, whose data source is a list of {@link Artist}s. The
         // adapter knows how to create list items for each item in the list.
         ArtistAdapter adapter = new ArtistAdapter(getActivity(), artists);
-
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
         // list_items.xml layout file.

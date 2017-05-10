@@ -9,10 +9,10 @@ public class ArtistDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_artist_details);
         getSupportActionBar().setTitle(getIntent().getStringExtra("NAME"));
         String url = getIntent().getStringExtra("URL");
-        WebView webview = new WebView(this);
-        setContentView(webview);
+        WebView webview = (WebView) findViewById(R.id.web_view);
         webview.loadUrl(url);
     }
 }

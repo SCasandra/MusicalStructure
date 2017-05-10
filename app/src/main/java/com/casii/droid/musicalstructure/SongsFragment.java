@@ -35,7 +35,6 @@ public class SongsFragment extends Fragment {
         // Create an {@link SongAdapter}, whose data source is a list of {@link Song}s. The
         // adapter knows how to create list items for each item in the list.
         SongAdapter adapter = new SongAdapter(getActivity(), songs);
-
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
         // list_items.xml layout file.
@@ -48,7 +47,6 @@ public class SongsFragment extends Fragment {
                 String title = ((TextView) view.findViewById(R.id.title_text_view)).getText().toString();
                 String artist = ((TextView) view.findViewById(R.id.artist_name_text_view)).getText().toString();
                 intent.putExtra("TITLE", title);
-                intent.putExtra("MP3FILE", songs.get(i).getMp3File());
                 intent.putExtra("ARTIST", artist);
                 getContext().startActivity(intent);
             }

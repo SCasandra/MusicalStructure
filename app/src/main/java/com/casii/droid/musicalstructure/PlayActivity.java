@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PlayActivity extends AppCompatActivity {
 
@@ -29,36 +30,42 @@ public class PlayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
-        // Create and setup the {@link AudioManager} to request audio focus
-        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         play = (ImageButton) findViewById(R.id.play);
         ImageButton pause = (ImageButton) findViewById(R.id.pause);
         ImageButton stop = (ImageButton) findViewById(R.id.stop);
+        // Create and setup the {@link AudioManager} to request audio focus
+        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 play();
+                Toast.makeText(getApplicationContext(), "Play", Toast.LENGTH_SHORT).show();
             }
         });
-        stop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                releaseMediaPlayer();
-            }
-        });
+
         pause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                releaseMediaPlayer();
+                Toast.makeText(getApplicationContext(), "Pause", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 pause();
+                Toast.makeText(getApplicationContext(), "Stop", Toast.LENGTH_SHORT).show();
             }
         });
         String title = getIntent().getStringExtra("TITLE");
-        mp3File = getIntent().getStringExtra("URL");
         String artist = getIntent().getStringExtra("ARTIST");
+        mp3File = getIntent().getStringExtra("URL");
         getSupportActionBar().setTitle(title);
         TextView songTextView = (TextView) findViewById(R.id.song_text_view);
         songTextView.setText("Title   |   " + title + "   |   Artist   |  " + artist);
     }
+
 
     /**
      * This listener gets triggered whenever the audio focus changes

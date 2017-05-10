@@ -60,16 +60,14 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
-
     private void showProgressBar() {
         progress = new ProgressDialog(this, R.style.DialogStyle);
-        progress.setMessage("Loading data.. ");
+        progress.setMessage(getString(R.string.progressBar_message));
         progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progress.setIndeterminate(true);
         progress.setCancelable(false);
         progress.show();
     }
-
 
     /**
      * {@link AsyncTask} to perform the network request on a background thread, and then
@@ -81,21 +79,16 @@ public class MainActivity extends AppCompatActivity {
         protected List<Song> doInBackground(String... urls) {
             // Create URL object
             URL urlSong = createUrl(URL + API_KEY);
-
             // Perform HTTP request to the URL and receive a JSON response back
             String jsonResponseSong = "";
             try {
                 jsonResponseSong = makeHttpRequest(urlSong);
-
             } catch (IOException e) {
                 // TODO Handle the IOException
             }
-
             // Extract relevant fields from the JSON response and create an {@link Song}(s) object
             List<Song> songs = extractResultFromJson(jsonResponseSong);
-
             // Return the {@link Song} object as the result for the {@link AsyncData}
-
             return songs;
         }
 

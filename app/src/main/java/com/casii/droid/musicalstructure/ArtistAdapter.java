@@ -11,9 +11,6 @@ import java.util.List;
 
 /**
  * Created by Casi on 04.05.2017.
- */
-
-/**
  * {@link ArtistAdapter} is an {@link ArrayAdapter} that can provide the layout for each list item
  * based on a data source, which is a list of {@link Artist} objects.
  */
